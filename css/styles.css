@@ -1,0 +1,295 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* ===== LOGIN & REGISTER STYLING ===== */
+.form-container {
+  width: 400px;
+  padding: 30px;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: gray;
+}
+
+/* LOGIN PAGE */
+.login-container {
+  width: 350px;
+}
+
+/* ===== DASHBOARD STYLING ===== */
+.dashboard-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #222;
+  color: white;
+  height: 100vh;
+  padding-top: 20px;
+  transition: width 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  align-items: center;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: gray;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.sidebar.collapsed {
+  width: 20px;
+  background-color: transparent;
+}
+
+.sidebar.collapsed .nav-links li {
+  text-align: center;
+}
+
+.sidebar.collapsed .nav-links li a {
+  display: none;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.nav-links li {
+  padding: 15px;
+  text-align: left;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+}
+
+.nav-links li:hover {
+  background: #444;
+}
+
+/* Dashboard Content */
+.content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+.user-info {
+  width: 90%;
+  max-width: 800px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.user-info div {
+  width: 45%;
+  margin-bottom: 10px;
+}
+
+.user-info h3 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .sidebar.collapsed {
+    width: 50px;
+  }
+}
+/* ============================
+   🔥 MEDIA QUERIES FOR ALL PAGES
+   ============================ */
+
+/* 📱 Small screens (Mobile devices) */
+@media (max-width: 600px) {
+  /* Center forms for login & register */
+  .form-container,
+  .login-container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  /* Reduce button padding */
+  button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  /* Adjust sidebar */
+  .sidebar {
+    width: 100px;
+  }
+
+  .sidebar.collapsed {
+    width: 50px;
+  }
+
+  .sidebar .nav-links li {
+    text-align: center;
+  }
+
+  .sidebar .nav-links li a {
+    font-size: 14px;
+  }
+
+  /* Dashboard content */
+  .content {
+    padding: 20px;
+  }
+
+  .user-info {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .user-info div {
+    width: 100%;
+  }
+}
+
+/* 📲 Tablets (600px - 1024px) */
+@media (max-width: 1024px) {
+  /* Adjust form size */
+  .form-container,
+  .login-container {
+    width: 70%;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 180px;
+  }
+
+  .sidebar.collapsed {
+    width: 60px;
+  }
+
+  .nav-links li {
+    padding: 12px;
+  }
+
+  /* Adjust content spacing */
+  .content {
+    padding: 30px;
+  }
+
+  .user-info {
+    width: 95%;
+  }
+
+  .user-info div {
+    width: 48%;
+  }
+}
+
+/* 💻 Large Screens (Desktops) */
+@media (min-width: 1200px) {
+  /* Increase form size for better readability */
+  .form-container,
+  .login-container {
+    width: 400px;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 220px;
+  }
+
+  .sidebar.collapsed {
+    width: 60px;
+  }
+
+  /* Dashboard content */
+  .content {
+    padding: 40px;
+  }
+
+  .user-info {
+    max-width: 900px;
+  }
+}
