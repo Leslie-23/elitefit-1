@@ -100,7 +100,7 @@ $experience_percentage = ($user_data['experience_level'] / 10) * 100;
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="./user/schedule.php">
                     <i class="fas fa-calendar-alt"></i>
                     <span>Schedule</span>
                 </a>

@@ -133,6 +133,8 @@ if (isset($_POST['update_user'])) {
     $stmt->bind_param("ssssi", $first_name, $last_name, $email, $contact_number, $user_id);
     $stmt->execute();
     $stmt->close();
+    // refresh the page
+    echo "<script>alert('User updated successfully'); window.location.href='/'; window.location.href='users.php';</script>";
     header("Location: users.php");
     exit();
 }
