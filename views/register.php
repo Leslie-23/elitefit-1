@@ -303,7 +303,7 @@ $result = mysqli_query($conn, $workout_query);
                         <option value="">Select gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
-                        <option value="Other">Other</option>
+                        <!-- <option value="Other">Other</option> -->
                     </select>
                 </div>
                 <div class="form-group">

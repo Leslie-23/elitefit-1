@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $age = date_diff(date_create($dob), date_create($today))->y;
 
     if ($age < 18 || $age > 69) {
-        echo "<script>alert('You must be at least 18 and less than 70 years old to register!');  </script>";
+        echo "<script>alert('You must be at least 18 and less than 70 years old to register!'); window.location.href='../views/register.php'  </script>";
         exit();
     }
 
@@ -56,12 +56,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $check_result = mysqli_query($conn, $check_query);
 
     if (mysqli_num_rows($check_result) > 0) {
-        echo "<script>alert('Email or contact number already registered!');  </script>";
+        echo "<script>alert('Email or contact number already registered!'); window.location.href='../views/register.php'</script>";
         exit();
     }
 
     if ($workout_1 == $workout_2 || $workout_1 == $workout_3 || $workout_2 == $workout_3) {
-        echo "<script>alert('You cannot select the same workout routine more than once!');</script>";
+        echo "<script>alert('You cannot select the same workout routine more than once!'); window.location.href='../views/register.php' </script>";
         exit();
     }
 
@@ -104,11 +104,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         VALUES ('$user_id', '$user_weight', '$user_height', '$user_bodytype', '$workout_1', '$workout_2', '$workout_3', '$fitness_goal_1', '$fitness_goal_2', '$fitness_goal_3', '$experience_level', '$health_condition', '$health_condition_desc')";
 
     if (!mysqli_query($conn, $fitness_query)) {
-        echo "<script>alert('Error saving fitness details: " . mysqli_error($conn) . "');  </script>";
+        echo "<script>alert('Error saving fitness details: " . mysqli_error($conn) . "'); window.location.href='../views/register.php </script>";
         exit();
     }
 
     // Generate strong password
+    // this not in use as at now
     $raw_password = generate_strong_password();
     $hashed_password = password_hash($raw_password, PASSWORD_BCRYPT);
 

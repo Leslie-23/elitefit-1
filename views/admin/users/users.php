@@ -123,19 +123,26 @@ if (isset($_POST['create_user'])) {
 
 // Handle Update
 if (isset($_POST['update_user'])) {
-    $user_id = $_POST['table_id'];
+    $user_id = intval($_POST['table_id']);
     $first_name = trim($_POST['first_name']);
     $last_name = trim($_POST['last_name']);
     $email = trim($_POST['email']);
     $contact_number = trim($_POST['contact_number']);
 
     $stmt = $conn->prepare("UPDATE user_register_details SET first_name=?, last_name=?, email=?, contact_number=? WHERE table_id=?");
+    if (!$stmt) {
+        echo "<script>alert('Failed to prepare update query');</script>";
+        exit();
+    }
+
     $stmt->bind_param("ssssi", $first_name, $last_name, $email, $contact_number, $user_id);
-    $stmt->execute();
+    
+    if ($stmt->execute()) {
+        echo "<script>alert('User updated successfully'); window.location.href='users.php';</script>";
+    } else {
+        echo "<script>alert('Failed to update user: " . $stmt->error . "');</script>";
+    }
     $stmt->close();
-    // refresh the page
-    echo "<script>alert('User updated successfully'); window.location.href='/'; window.location.href='users.php';</script>";
-    header("Location: users.php");
     exit();
 }
 
@@ -190,10 +197,11 @@ $users = $conn->query("SELECT * FROM user_register_details ORDER BY date_of_regi
                         <!-- Update Form Toggle -->
                         <form method="POST" action="users.php" style="display:inline-block;">
                             <!-- <input type="hidden" name="table_id" value="<?= $user['id']; ?>"> -->
+                            <input type="hidden" name="table_id" value="<?= $user['table_id']; ?>">
                             <input type="text" name="first_name" value="<?= htmlspecialchars($user['first_name']); ?>" required>
                             <input type="text" name="last_name" value="<?= htmlspecialchars($user['last_name']); ?>" required>
-                            <input type="email" name="email" value="<?= htmlspecialchars($user['email']); ?>" required>
-                            <input type="text" name="contact_number" value="<?= htmlspecialchars($user['contact_number']); ?>">
+                            <!-- <input type="email" name="email" value="<?= htmlspecialchars($user['email']); ?>" required> -->
+                            <!-- <input type="text" name="contact_number" value="<?= htmlspecialchars($user['contact_number']); ?>"> -->
                             <button type="submit" name="update_user">Update</button>
                         </form>
 

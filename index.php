@@ -45,7 +45,7 @@
     <header class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Transform Your Body, <span>Transform Your Life</span></h1>
+                <h1>Become a new YOU, <span>Start a new Journey</span></h1>
                 <p>Experience premium fitness with state-of-the-art equipment, expert trainers, and personalized programs designed to help you achieve your fitness goals.</p>
                 <div class="hero-btns">
                     <a href="views/register.php" class="btn btn-primary">Get Started</a>

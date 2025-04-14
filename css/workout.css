@@ -1,0 +1,123 @@
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Container */
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading */
+.content h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+  color: #2c3e50;
+}
+
+/* Form Structure */
+form fieldset {
+  margin-bottom: 25px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fafafa;
+}
+
+form legend {
+  font-weight: bold;
+  padding: 0 8px;
+  color: #34495e;
+}
+
+/* Form Elements */
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #555;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+/* Textarea */
+textarea {
+  resize: vertical;
+}
+
+/* Button */
+button[type="submit"] {
+  background-color: #2ecc71;
+  color: white;
+  font-size: 1rem;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+  width: 100%;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  background-color: #27ae60;
+}
+
+/* Error Message */
+div[style*="color: red"] {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #e74c3c;
+  background-color: #fbeaea;
+  border-radius: 8px;
+  color: #c0392b;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .content {
+    padding: 20px;
+  }
+
+  input[type="text"],
+  select,
+  textarea,
+  button {
+    font-size: 0.95rem;
+  }
+}

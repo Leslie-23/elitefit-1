@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 <head>
     <title>Schedule Session - EliteFit</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../../css/schedule.css">
 </head>
 <body>
 <div class="login-container">
