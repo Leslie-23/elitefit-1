@@ -546,7 +546,7 @@
             </div>
             <div class="footer-bottom">
                 <div class="copyright">
-                    <p>&copy; 2023 EliteFit. All Rights Reserved.</p>
+                    <p>&copy; 2025 EliteFit. All Rights Reserved.</p>
                 </div>
                 <div class="footer-bottom-links">
                     <a href="#">Privacy Policy</a>

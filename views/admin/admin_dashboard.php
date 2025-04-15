@@ -24,7 +24,14 @@ $totalWorkoutPlans = $conn->query("SELECT COUNT(*) as count FROM workout_plan")-
 $totalEquipment = $conn->query("SELECT COUNT(*) as count FROM gym_equipment")->fetch_assoc()['count'];
 
 // Get recent users
-$recentUsers = $conn->query("SELECT first_name, last_name, email, date_of_registration FROM user_register_details ORDER BY date_of_registration DESC LIMIT 10");
+$recentUsers = $conn->query("SELECT first_name, last_name, email, date_of_registration FROM user_register_details ORDER BY date_of_registration DESC LIMIT 5");
+
+$today = date('Y-m-d');
+$stmt = $conn->prepare("SELECT COUNT(*) AS active_count FROM trainer_sessions WHERE session_date = ? ");
+$stmt->bind_param("s", $today);
+$stmt->execute();
+$result = $stmt->get_result();
+$activeSessionsToday = $result->fetch_assoc()['active_count'];
 ?>
  
 <!DOCTYPE html>
@@ -59,13 +66,13 @@ $recentUsers = $conn->query("SELECT first_name, last_name, email, date_of_regist
             <a href="admin_users.php" class="menu-item">
                 <i class="fas fa-users"></i> Manage Users
             </a>
-            <a href="admin_workout_plans.php" class="menu-item">
+            <a href="../trainer/workout_plans.php" class="menu-item">
                 <i class="fas fa-dumbbell"></i> Workout Plans
             </a>
             <a href="../equipment_manager/equipment.php" class="menu-item">
                 <i class="fas fa-toolbox"></i> Equipment
             </a>
-            <a href="admin_trainers.php" class="menu-item">
+            <a href="../trainer/trainer_dashboard.php" class="menu-item">
                 <i class="fas fa-user-tie"></i> Trainers
             </a>
             <a href="admin_settings.php" class="menu-item">
@@ -106,7 +113,7 @@ $recentUsers = $conn->query("SELECT first_name, last_name, email, date_of_regist
             </div>
             <div class="stat-card">
                 <h3>Active Sessions</h3>
-                <div class="stat-value">0</div>
+                <div class="stat-value"><?php echo $activeSessionsToday; ?></div>
                 <div class="stat-label">Today</div>
             </div>
             <div class="stat-card">
