@@ -62,7 +62,7 @@ $recentUsers = $conn->query("SELECT first_name, last_name, email, date_of_regist
             <a href="admin_workout_plans.php" class="menu-item">
                 <i class="fas fa-dumbbell"></i> Workout Plans
             </a>
-            <a href="admin_equipment.php" class="menu-item">
+            <a href="../equipment_manager/equipment.php" class="menu-item">
                 <i class="fas fa-toolbox"></i> Equipment
             </a>
             <a href="admin_trainers.php" class="menu-item">
