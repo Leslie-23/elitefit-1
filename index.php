@@ -45,8 +45,8 @@
     <header class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Become a new YOU, <span>Start a new Journey</span></h1>
-                <p>Experience premium fitness with state-of-the-art equipment, expert trainers, and personalized programs designed to help you achieve your fitness goals.</p>
+                <h1>Fitness for Everyone,  <span> Excellence for <strong>you</strong></span></h1>
+                <p>Experience premium fitness with state-of-the-art equipment, expert trainers, and personalized programs designed to help you achieve your fitness goals.<i class="m-txt"> EliteFit isn’t just a gym — it’s a lifestyle revolution.</i></p>
                 <div class="hero-btns">
                     <a href="views/register.php" class="btn btn-primary">Get Started</a>
                     <a href="#membership" class="btn btn-secondary">View Plans</a>
@@ -446,7 +446,7 @@
                         </div>
                         <div class="contact-details">
                             <h3>Email Address</h3>
-                            <p>info@elitefit.com</p>
+                            <a  href="mailto:seunpaul003@example.com" >info@elitefit.com</a>
                         </div>
                     </div>
                     <div class="contact-card">
@@ -460,36 +460,35 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form action="process/contact.php" method="POST">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <select id="subject" name="subject">
-                                <option value="membership">Membership Inquiry</option>
-                                <option value="training">Personal Training</option>
-                                <option value="classes">Group Classes</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
+    <form id="contact-form">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" />
+        </div>
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+                <option value="membership">Membership Inquiry</option>
+                <option value="training">Personal Training</option>
+                <option value="classes">Group Classes</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+</div>
         </div>
     </section>
 
@@ -508,11 +507,11 @@
                     <img src="assets/images/elitefit-1.jpg" alt="EliteFit Logo">
                     <p>Your premium fitness destination for transformation and excellence.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -564,6 +563,27 @@
     </a>
 
     <!-- JavaScript -->
-    <script src="js/index.js"></script>
+    <script src="js/index.js">
+
+    </script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function () {
+        emailjs.init("kIdiDjEag_qr60aRX"); // Replace with your actual EmailJS user ID
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        emailjs.sendForm('service_r3x2arl', 'template_3s06bzm', this)
+            .then(function () {
+                alert("Message sent successfully!");
+                document.getElementById('contact-form').reset();
+            }, function (error) {
+                console.error("Failed to send message:", error);
+                alert("An error occurred while sending the message. Please try again.");
+            });
+    });
+</script>
 </body>
 </html>
